@@ -5,7 +5,7 @@ const StyledList = styled.div`
   margin: 0;
   padding: 0;
   display: flex;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   flex-direction: column;
@@ -31,7 +31,7 @@ const StyledList = styled.div`
   }
 
   ul {
-    padding: 82px 0;
+	  padding: 0;
     margin: 0;
     display: flex;
     align-items: flex-start;
@@ -58,10 +58,13 @@ const StyledList = styled.div`
 `
 
 const StyledButton = styled.button`
+  @media (min-width: 720px) {
+    display: none;
+  }
   width: 40px;
   height: 40px;
   z-index: 1;
-  position: absolute;
+  position: fixed;
   top: 20px;
   left: 20px;
   overflow-x: hidden;
@@ -143,10 +146,6 @@ const Sidebar = () => {
 					<li><a href="">Dolor</a></li>
 					<li><a href="">Sit</a></li>
 					<li><a href="">Amet</a></li>
-				</ul>
-				<ul>
-					<li><a href="">Log In</a></li>
-					<li><a href="">Sign Up</a></li>
 				</ul>
 			</StyledList>
 		</nav>

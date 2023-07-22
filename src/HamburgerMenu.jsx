@@ -2,37 +2,43 @@ import React, {useState} from 'react'
 import styled from 'styled-components'
 
 const StyledWrapper = styled.nav`
-  position: fixed;
-  right: 0;
-  top: 100px;
-	
-  background: #eee;
-  transition: 0.3s ease;
-  transform: translateX(${({isOpen}) => isOpen ? '0%' : '100%'});
-  div {
-    position: relative;
-    ul {
-      margin: 0;
-      display: flex;
-		padding: 32px;
-      flex-direction: column;
-      gap: 12px;
-      list-style: none;
-      li {
-        font-size: 18px;
-        a {
-          text-decoration: none;
-          color: black;
-          &:hover {
-            border-bottom: 2px solid black;
-          }
-        }
-        &:first-child {
-          font-weight: bold;
-        }
-      }
-    }
-  }
+	position: fixed;
+	right: 0;
+	top: 100px;
+
+	background: #eee;
+	transition: 0.3s ease;
+	transform: translateX(${({isOpen}) => isOpen ? '0%' : '100%'});
+
+	div {
+		position: relative;
+
+		ul {
+			margin: 0;
+			display: flex;
+			padding: 32px;
+			flex-direction: column;
+			gap: 12px;
+			list-style: none;
+
+			li {
+				font-size: 18px;
+
+				a {
+					text-decoration: none;
+					color: black;
+
+					&:hover {
+						border-bottom: 2px solid black;
+					}
+				}
+
+				&:first-child {
+					font-weight: bold;
+				}
+			}
+		}
+	}
 `
 
 const StyledButton = styled.button`
