@@ -1,60 +1,47 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 
 const StyledList = styled.div`
-  margin: 0;
-  padding: 0;
-  display: flex;
-  position: fixed;
-  top: 0;
-  left: 0;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-	background: white;
-  list-style: none;
-  width: 100%;
-  height: 100vh;
-  transition: 0.2s ease;
-  transform: translateX(${({isOpen}) => isOpen ? 0 : '-100%'});
-
-  @media (min-width: 720px) {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    padding-top: 82px;
-    width: 300px;
-    border-right: 3px solid black;
-    animation: none;
-    transition: transform 0.3s ease-in-out;
-    transform: translateX(${({isOpen}) => isOpen ? 0 : '-100%'});
-  }
-
-  ul {
-	  padding: 0;
     margin: 0;
+    padding: 0;
     display: flex;
-    align-items: flex-start;
+    position: fixed;
+    top: 0;
+    left: 0;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: white;
     list-style: none;
+    width: 100%;
+    height: 100vh;
+    transition: 0.2s ease;
+    transform: translateX(${({ isOpen }) => (isOpen ? 0 : '-100%')});
 
-    @media (min-width: 720px) {
-      padding: 0 20px 20px 20px;
+    ul {
+        padding: 0;
+        margin: 0;
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+        list-style: none;
 
-    }
-
-    li {
-      a {
-        text-decoration: none;
-        color: black;
-        font-size: 24px;
-
-        &:hover {
-          border-bottom: 2px solid black;
+        @media (min-width: 720px) {
+            padding: 0 20px 20px 20px;
         }
-      }
+
+        li {
+            a {
+                text-decoration: none;
+                color: black;
+                font-size: 24px;
+
+                &:hover {
+                    border-bottom: 2px solid black;
+                }
+            }
+        }
     }
-  }
 `
 
 const StyledButton = styled.button`
@@ -78,7 +65,8 @@ const StyledButton = styled.button`
       position: absolute;
       top: 0;
       left: 0;
-      transform: translateX(${({isOpen}) => isOpen ? 'calc(-100% - 2px)' : 0});
+      transform: translateX(${({ isOpen }) =>
+          isOpen ? 'calc(-100% - 2px)' : 0});
       transition: transform ease-in-out 0.3s;
 
       &::before, &::after {
@@ -107,7 +95,8 @@ const StyledButton = styled.button`
       position: absolute;
       top: 0;
       left: calc(100% + 2px);
-      transform: translateX(${({isOpen}) => isOpen ? 'calc(-100% - 2px)' : 0});
+      transform: translateX(${({ isOpen }) =>
+          isOpen ? 'calc(-100% - 2px)' : 0});
       transition: transform ease-in-out 0.3s;
 
       &::before, &::after {
@@ -131,25 +120,35 @@ const StyledButton = styled.button`
 `
 
 const Sidebar = () => {
-	const [isOpen, setIsOpen] = useState(false)
-	return (
-		<nav>
-			<StyledButton isOpen={isOpen} onClick={() => setIsOpen(!isOpen)}>
-				<span />
-				<span />
-				<span />
-			</StyledButton>
-			<StyledList isOpen={isOpen}>
-				<ul>
-					<li><a href="">Lorem</a></li>
-					<li><a href="">Ipsum</a></li>
-					<li><a href="">Dolor</a></li>
-					<li><a href="">Sit</a></li>
-					<li><a href="">Amet</a></li>
-				</ul>
-			</StyledList>
-		</nav>
-	)
+    const [isOpen, setIsOpen] = useState(false)
+    return (
+        <nav>
+            <StyledButton isOpen={isOpen} onClick={() => setIsOpen(!isOpen)}>
+                <span />
+                <span />
+                <span />
+            </StyledButton>
+            <StyledList isOpen={isOpen}>
+                <ul>
+                    <li>
+                        <a href="">Lorem</a>
+                    </li>
+                    <li>
+                        <a href="">Ipsum</a>
+                    </li>
+                    <li>
+                        <a href="">Dolor</a>
+                    </li>
+                    <li>
+                        <a href="">Sit</a>
+                    </li>
+                    <li>
+                        <a href="">Amet</a>
+                    </li>
+                </ul>
+            </StyledList>
+        </nav>
+    )
 }
 
 export default Sidebar
